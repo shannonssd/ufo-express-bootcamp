@@ -38,6 +38,37 @@
         background-image: url("https://i.stack.imgur.com/Mv83H.png");
       }
 
+      h1 {
+        color: greenyellow;
+        font-family: "Orbitron", sans-serif;
+        font-size: 60px;
+      }
+
+      .sighting-details {
+        margin-bottom: 40px;
+        font-size: 14px;
+        color: rgb(177, 255, 59);
+        font-family: "Orbitron", sans-serif;
+        background-color: rgba(128, 128, 128, 0.291);
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.318);
+        padding: 00px 60px 00px 60px;
+      }
+
+      .row-sightings-details {
+        background-color: grey;
+        opacity: 80%;
+        padding: 40px 60px 40px 60px;
+      }
+      .button {
+        font-family: "Orbitron", sans-serif;
+        color: greenyellow;
+        background-color: rgba(0, 0, 0, 0.318);
+      }
+
+      .bottom-row {
+        background-color: rgba(0, 0, 0, 0.318);
+      }
       @media screen and (min-width: 1440px) {
         .a-nav:visited,
         .a-nav:link {
@@ -45,7 +76,7 @@
         }
       }
 
-      @media screen and (min-width: 1024px) and (max-width: 1339px) {
+      @media screen and (min-width: 1024px) and (max-width: 1439px) {
         .a-nav:visited,
         .a-nav:link {
           font-size: 20px;
@@ -77,24 +108,39 @@
       }
     </style>
   </head>
-  <nav>
-    <div class="container mw-100">
-      <div class="row">
-        <div class="col-4 d-flex justify-content-center col-nav">
-          <a href="/" class="a-nav">Home</a>
-        </div>
-        <div class="col-4 d-flex justify-content-center col-nav">
-          <a href="/sighting" class="a-nav">Report A Sighting</a>
-        </div>
-        <div class="col-4 d-flex justify-content-center col-nav">
-          <a href="/shapes" class="a-nav"> Find Sighting By Shape</a>
+  <body>
+    <nav>
+      <div class="container mw-100">
+        <div class="row">
+          <div class="col-4 d-flex justify-content-center col-nav">
+            <a href="/" class="a-nav">Home</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col-nav">
+            <a href="/sighting" class="a-nav">Report A Sighting</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col-nav">
+            <a href="/shapes" class="a-nav"> Find Sighting By Shape</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <body>
-    <main>
-      <form action="/sighting/<%= sighting.index %>?_method=PUT" method="POST">
+    </nav>
+   <main>
+      <h1 class="d-flex justify-content-center sighting-details-title">
+        👽🛸 EDIT SIGHTING 🛸👽
+      </h1>
+
+      <div class="container d-flex justify-content-center container-sightings">
+        <div
+          class="
+            row
+            d-flex
+            align-items-center
+            flex-column
+            row-sightings-details
+          "
+        >
+          <div class="sighting-details">
+            <form action="/sighting/<%= sighting.index %>?_method=PUT" method="POST">
         <label for="text">Sighting:</label><br />
         <input
           type="text"
@@ -156,9 +202,15 @@
           placeholder="Summraise Your Encounter!"
           value="<%= sighting.summary %>"
           required
-        /><br />
-        <input type="submit" value="Submit" />
-      </form>
+              /><br />
+            </div> 
+             <div class="w-100 d-flex justify-content-center margin-top-10px bottom-row">
+                <input type="submit" value="Submit" class="button" />
+              </div>
+            </form>
+          
+        </div>
+      </div>
     </main>
   </body>
 </html>
