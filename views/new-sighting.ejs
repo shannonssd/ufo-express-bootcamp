@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Sighting Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        background-color: black;
+      }
+      /* .row {
+        background-color: blue;
+      } */
+      .col {
+        background-color: maroon;
+        border: black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container mw-100">
+        <div class="row">
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/">Home</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/sighting">Report A Sighting</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/shapes"> Find Sighting By Shape</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <form action="/sighting/new" method="POST">
+        <label for="text">Sighting:</label><br />
+        <input
+          type="text"
+          name="text"
+          id="text"
+          placeholder="Describe Sighting!"
+          required
+        /><br />
+        <label for="date_time">Date & Time:</label><br />
+        <input
+          type="text"
+          name="date_time"
+          id="date_time"
+          placeholder="DD/MM/YY HH:MM"
+          required
+        /><br />
+        <label for="city">City:</label><br />
+        <input
+          type="text"
+          name="city"
+          id="city"
+          placeholder="City Name"
+          required
+        /><br /><label for="state">State:</label><br />
+        <input
+          type="text"
+          name="state"
+          id="state"
+          placeholder="State"
+          required
+        /><br />
+        <label for="shape">Shape:</label><br />
+        <input
+          type="text"
+          name="shape"
+          id="shape"
+          placeholder="Describe Shape"
+          required
+        /><br />
+        <label for="duration">Duration:</label><br />
+        <input
+          type="text"
+          name="duration"
+          id="duration"
+          placeholder="How Long Did You See It?"
+          required
+        /><br />
+        <label for="summary">Summary:</label><br />
+        <input
+          type="text"
+          name="summary"
+          id="summary"
+          placeholder="Summraise Your Encounter!"
+          required
+        /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </main>
+  </body>
+</html>

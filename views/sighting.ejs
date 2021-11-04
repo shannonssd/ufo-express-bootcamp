@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sighting</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        background-color: black;
+      }
+      /* .row {
+        background-color: blue;
+      } */
+      .col {
+        background-color: maroon;
+        border: black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container mw-100">
+        <div class="row">
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/">Home</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/sighting">Report A Sighting</a>
+          </div>
+          <div class="col-4 d-flex justify-content-center col">
+            <a href="/shapes"> Find Sighting By Shape</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <ul>
+        <li>Sighting: <%= text %></li>
+        <li>Date & Time: <%= date_time %></li>
+        <li>City: <%= city %></li>
+        <li>State: <%= state %></li>
+        <li>Shape: <%= shape %></li>
+        <li>Duration: <%= duration %></li>
+        <li>Summary: <%= summary %></li>
+      </ul>
+    </main>
+    <a href="/sighting/<%= index %>/edit"> Edit Sighting</a>
+    <form action="/sighting/<%= index %>/delete?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" />
+    </form>
+  </body>
+</html>
