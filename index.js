@@ -6,6 +6,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // 1a. GET Request for new sighting
 app.get('/sighting', (req, res) => {

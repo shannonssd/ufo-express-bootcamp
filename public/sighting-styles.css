@@ -1,0 +1,172 @@
+.col-nav {
+  background-color: grey;
+  opacity: 80%;
+}
+main {
+  margin-top: 50px;
+}
+
+.a-nav:visited,
+.a-nav:link {
+  color: rgb(177, 255, 59);
+  font-size: 25px;
+  font-family: "Orbitron", sans-serif;
+  padding: 10px;
+}
+
+body {
+  background-image: url("stars.png");
+}
+
+.row-sightings-details {
+  background-color: grey;
+  opacity: 80%;
+  padding: 40px 60px 40px 60px;
+}
+.sighting-details {
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: rgb(177, 255, 59);
+  font-family: "Orbitron", sans-serif;
+  background-color: rgba(128, 128, 128, 0.291);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.318);
+  padding: 00px 60px 00px 60px;
+}
+
+.sighting-details-title {
+  color: greenyellow;
+  font-family: "Orbitron", sans-serif;
+  font-size: 60px;
+}
+
+.text-details {
+  font-size: 20px;
+}
+
+.edit-sighting {
+  font-family: "Orbitron", sans-serif;
+  color: greenyellow;
+}
+
+.bottom-col {
+  background-color: rgba(0, 0, 0, 0.318);
+}
+
+.button {
+  font-family: "Orbitron", sans-serif;
+  color: greenyellow;
+  background-color: rgba(0, 0, 0, 0.318);
+}
+
+@media screen and (min-width: 0px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 7px;
+  }
+  .sighting-details-title {
+    font-size: 18px;
+  }
+  .text-details {
+    font-size: 4px;
+  }
+  .sighting-details {
+    font-size: 3px;
+  }
+  .bottom-col {
+    font-size: 3px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 8px;
+  }
+  .sighting-details-title {
+    font-size: 25px;
+  }
+  .text-details {
+    font-size: 6px;
+  }
+  .sighting-details {
+    font-size: 5px;
+  }
+  .bottom-col {
+    font-size: 5px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 13px;
+  }
+  .sighting-details-title {
+    font-size: 30px;
+  }
+  .text-details {
+    font-size: 8px;
+  }
+  .sighting-details {
+    font-size: 6px;
+  }
+  .bottom-col {
+    font-size: 6px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 15px;
+  }
+  .sighting-details-title {
+    font-size: 42px;
+  }
+  .text-details {
+    font-size: 11px;
+  }
+  .sighting-details {
+    font-size: 9px;
+  }
+  .bottom-col {
+    font-size: 9px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 20px;
+  }
+
+  .sighting-details-title {
+    font-size: 52px;
+  }
+  .text-details {
+    font-size: 14px;
+  }
+  .sighting-details {
+    font-size: 10px;
+  }
+  .bottom-col {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 22px;
+  }
+  .sighting-details-title {
+    font-size: 60px;
+  }
+  .text-details {
+    font-size: 20px;
+  }
+  .sighting-details {
+    font-size: 14px;
+  }
+  .bottom-col {
+    font-size: 14px;
+  }
+}

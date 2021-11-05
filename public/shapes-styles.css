@@ -1,0 +1,163 @@
+.col-nav {
+  background-color: grey;
+  opacity: 80%;
+}
+main {
+  margin-top: 50px;
+}
+
+.a-nav:visited,
+.a-nav:link {
+  color: rgb(177, 255, 59);
+  font-size: 25px;
+  font-family: "Orbitron", sans-serif;
+  padding: 10px;
+}
+
+body {
+  background-image: url("stars.png");
+}
+
+.row-sightings {
+  background-color: grey;
+  opacity: 80%;
+  padding: 40px 60px 40px 60px;
+}
+
+h1 {
+  margin-bottom: 25px;
+}
+
+.ufo-sighting-title {
+  color: greenyellow;
+  font-family: "Orbitron", sans-serif;
+}
+
+.sighting-list-title {
+  margin-bottom: 40px;
+  font-size: 35px;
+  color: rgb(177, 255, 59);
+  font-family: "Orbitron", sans-serif;
+  background-color: rgba(128, 128, 128, 0.291);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.318);
+  padding: 00px 60px 00px 60px;
+}
+
+.a-sighting:link,
+.a-sighting:visited {
+  color: greenyellow;
+  font-size: 22px;
+  font-family: "Orbitron", sans-serif;
+}
+
+@media screen and (min-width: 0px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 7px;
+  }
+  .ufo-sighting-title {
+    font-size: 14px;
+  }
+
+  .sighting-list-title {
+    font-size: 7px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 8px;
+  }
+  .ufo-sighting-title {
+    font-size: 16px;
+  }
+
+  .sighting-list-title {
+    font-size: 12px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 13px;
+  }
+  .ufo-sighting-title {
+    font-size: 19px;
+  }
+
+  .sighting-list-title {
+    font-size: 16px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 15px;
+  }
+  .ufo-sighting-title {
+    font-size: 35px;
+  }
+
+  .sighting-list-title {
+    font-size: 28px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 20px;
+  }
+  .ufo-sighting-title {
+    font-size: 40px;
+  }
+
+  .sighting-list-title {
+    font-size: 32px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 19px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .a-nav:visited,
+  .a-nav:link {
+    font-size: 22px;
+  }
+  .ufo-sighting-title {
+    font-size: 48px;
+  }
+
+  .sighting-list-title {
+    font-size: 35px;
+  }
+
+  .a-sighting:link,
+  .a-sighting:visited {
+    font-size: 22px;
+  }
+}
