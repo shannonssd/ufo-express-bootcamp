@@ -45,13 +45,52 @@ app.get('/sighting/:index', (req, res) => {
   });
 });
 
+const createArrayForFilters = (data) => {
+  const cityObj = {};
+  const sightingsArr = data.sightings;
+  for (let i = 0; i < sightingsArr.length; i += 1) {
+    if (!(sightingsArr[i].city in cityObj)) {
+      cityObj[sightingsArr[i].city] = sightingsArr[i].city;
+    }
+  }
+  const cityArr = Object.values(cityObj);
+  return cityArr;
+};
+
 // 3. GET Request for all sightings (Home)
 app.get('/', (req, res) => {
   read('data.json', (err, data) => {
     if (err) {
       res.status(500).send('Sorry! Error reading database!');
     }
-    res.render('home', data);
+    const cityArr = createArrayForFilters(data);
+    data.cityArr = cityArr;
+
+    const filteredCity = req.query.filter;
+    if (Object.keys(req.query)[0] === 'filter') {
+      console.log('somethias');
+      const sightings = [];
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        if (data.sightings[j].city === filteredCity) {
+          sightings.push(data.sightings[j]);
+          sightingIndex.push([j]);
+        }
+      }
+      const newObj = { sightings };
+      newObj.cityArr = cityArr;
+      newObj.array = sightingIndex;
+      console.log('newObj', newObj);
+      console.log('newSighitngs', sightings);
+      res.render('home', newObj);
+    } else {
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        sightingIndex.push([j]);
+      }
+      data.array = sightingIndex;
+      res.render('home', data);
+    }
   });
 });
 

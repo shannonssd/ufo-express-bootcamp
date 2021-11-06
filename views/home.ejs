@@ -1,50 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UFO Sightings 👽</title>
-    <link rel="stylesheet" href="/home-styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav>
-      <div class="container mw-100">
-        <div class="row">
-          <div class="col-4 d-flex justify-content-center col-nav">
-            <a href="/" class="a-nav">Home</a>
-          </div>
-          <div class="col-4 d-flex justify-content-center col-nav">
-            <a href="/sighting" class="a-nav">Report A Sighting</a>
-          </div>
-          <div class="col-4 d-flex justify-content-center col-nav">
-            <a href="/shapes" class="a-nav"> Find Sighting By Shape</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <%- include('header', {title: "UFO Sightings", css: "/home-styles.css"}); %>
     <main>
       <h1 class="d-flex justify-content-center ufo-sighting-title">
         🛸 UFO SIGHTINGS 🛸
       </h1>
+      <div class="filter-city">
+        <form action="/">
+          <label for="filter"> </label>
+          <select name="filter" id="filter">
+              <option value="" disabled selected>Filter City</option>
+              <% cityArr.forEach( (element) => { %>
+              <option value="<%= element %>"><%= element %></option>
+              <% }); %>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
       <div class="container d-flex justify-content-center container-sightings">
         <div class="row d-flex align-items-center flex-column row-sightings">
           <div class="sighting-list-title">Sighting List</div>
-          <% sightings.forEach( (element, index) => { %>
+          <% array.forEach( (element, index) => { %>
           <div class="sighting-list">
-            <a href="/sighting/<%= index %>" class="a-sighting"
+            <a href="/sighting/<%= element %>" class="a-sighting"
               >Sighting <%= index+1 %></a
             >
           </div>
