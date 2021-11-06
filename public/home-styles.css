@@ -48,6 +48,43 @@ body {
   font-size: 22px;
   font-family: "Orbitron", sans-serif;
 }
+.form-col {
+  height: 30px;
+}
+.filter-container {
+  margin: 15px 0px 40px 0px;
+
+}
+
+.filter-date,
+.filter-shape,
+.filter-duration,
+.filter-state,
+.filter-city {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Orbitron", sans-serif;
+  color: greenyellow;
+  background-color: rgba(128, 128, 128, 0.119);
+  height: 30px;
+
+}
+
+.alien-date,
+.alien-shape,
+.alien-state,
+.alien-city,
+.alien-duration {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.318);
+  border: 0px;
+}
+
+
+
 @media screen and (min-width: 0px) {
   .a-nav:visited,
   .a-nav:link {
@@ -71,6 +108,9 @@ body {
     font-size: 30px;
   }
 }
+
+
+
 @media screen and (min-width: 375px) {
   .a-nav:visited,
   .a-nav:link {
@@ -106,7 +146,21 @@ body {
   .a-sighting:visited {
     font-size: 12px;
   }
+  .filter-date,
+  .filter-shape,
+  .filter-duration,
+  .filter-state,
+  .filter-city{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    height: 20px;
+    font-size: 6px;
+
+  }
 }
+
+
 @media screen and (min-width: 768px) {
   .a-nav:visited,
   .a-nav:link {
@@ -126,6 +180,14 @@ body {
   }
 }
 
+ .filter-date,
+  .filter-shape,
+  .filter-duration,
+  .filter-state,
+  .filter-city {
+    font-size: 8px;
+  }
+
 @media screen and (min-width: 1024px) {
   .a-nav:visited,
   .a-nav:link {
@@ -143,7 +205,16 @@ body {
   .a-sighting:visited {
     font-size: 27px;
   }
-}
+
+  .filter-date,
+  .filter-shape,
+  .filter-duration,
+  .filter-state,
+  .filter-city {
+    font-size: 10px;
+  }
+
+  
 @media screen and (min-width: 1440px) {
   .a-nav:visited,
   .a-nav:link {

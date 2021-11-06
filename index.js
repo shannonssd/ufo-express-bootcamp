@@ -97,6 +97,19 @@ const createShapeArray = (data) => {
   return shapeArray;
 };
 
+// Callback function to store all unique dates in an array
+const createDateArray = (data) => {
+  const dateObj = {};
+  const sightingsArr = data.sightings;
+  for (let i = 0; i < sightingsArr.length; i += 1) {
+    if (!(sightingsArr[i].date_time in dateObj)) {
+      dateObj[sightingsArr[i].date_time] = sightingsArr[i].date_time;
+    }
+  }
+  const dateArray = Object.values(dateObj);
+  return dateArray;
+};
+
 // 3. GET Request for all sightings (Home)
 app.get('/', (req, res) => {
   read('data.json', (err, data) => {
@@ -119,6 +132,10 @@ app.get('/', (req, res) => {
     const shapeArr = createShapeArray(data);
     data.shapeArr = shapeArr;
 
+    // Store array of unique state names in data object
+    const dateArr = createDateArray(data);
+    data.dateArr = dateArr;
+
     if (Object.keys(req.query)[0] === 'duration') {
       // Store obj info + array index of filtered cities
       const filteredDuration = req.query.duration;
@@ -132,6 +149,7 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
+      newObj.dateArr = dateArr;
       newObj.shapeArr = shapeArr;
       newObj.durationArr = durationArr;
       newObj.cityArr = cityArr;
@@ -151,6 +169,7 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
+      newObj.dateArr = dateArr;
       newObj.shapeArr = shapeArr;
       newObj.cityArr = cityArr;
       newObj.durationArr = durationArr;
@@ -170,6 +189,7 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
+      newObj.dateArr = dateArr;
       newObj.shapeArr = shapeArr;
       newObj.stateArr = stateArr;
       newObj.cityArr = cityArr;
@@ -189,6 +209,27 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
+      newObj.dateArr = dateArr;
+      newObj.shapeArr = shapeArr;
+      newObj.stateArr = stateArr;
+      newObj.cityArr = cityArr;
+      newObj.durationArr = durationArr;
+      newObj.array = sightingIndex;
+      res.render('home', newObj);
+    } else if (Object.keys(req.query)[0] === 'date_time') {
+      // Store obj info + array index of filtered cities
+      const filteredDate = req.query.date_time;
+      const sightings = [];
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        if (data.sightings[j].date_time === filteredDate) {
+          sightings.push(data.sightings[j]);
+          sightingIndex.push([j]);
+        }
+      }
+      const newObj = { sightings };
+      // Add array of each category for drop down bars
+      newObj.dateArr = dateArr;
       newObj.shapeArr = shapeArr;
       newObj.stateArr = stateArr;
       newObj.cityArr = cityArr;
@@ -252,9 +293,7 @@ app.get('/shapes', (req, res) => {
     for (let i = 0; i < sightingsArray.length; i += 1) {
       const alienShape = sightingsArray[i].shape;
 
-      if (alienShape in shapesObject) {
-        console.log('Repeat');
-      } else {
+      if (!(alienShape in shapesObject)) {
         shapesObject[alienShape] = alienShape;
       }
     }

@@ -3,54 +3,62 @@
       <h1 class="d-flex justify-content-center ufo-sighting-title">
         🛸 UFO SIGHTINGS 🛸
       </h1>
-      <div class="filter-city">
-        <form action="/">
-          <label for="city"> </label>
-          <select name="city" id="city">
-              <option value="" disabled selected>Filter City</option>
-              <% cityArr.forEach( (element) => { %>
-              <option value="<%= element %>"><%= element %></option>
-              <% }); %>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
+      <div class="row d-flex  justify-content-center filter-container">
+         <div class="col d-flex justify-content-center form-col">
+            <form action="/">
+              <label for="city"> </label>
+              <select name="city" id="city" class="filter-city">
+                  <option value="" disabled selected>Filter City</option>
+                  <% cityArr.forEach( (element) => { %>
+                  <option value="<%= element %>"><%= element %></option>
+                  <% }); %>
+                </select>
+                <input type="submit" value="👽" class="alien-city">
+            </form>
+          
+            <form action="/">
+              <label for="state"> </label>
+              <select name="state" id="state" class="filter-state" >
+                  <option value="" disabled selected>Filter State</option>
+                  <% stateArr.forEach( (element) => { %>
+                  <option value="<%= element %>"><%= element %></option>
+                  <% }); %>
+                </select>
+                <input type="submit" value="👽" class="alien-state">
+            </form>
+            <form action="/">
+              <label for="duration"> </label>
+              <select name="duration" id="duration" class="filter-duration">
+                  <option value="" disabled selected>Filter Duration</option>
+                  <% durationArr.forEach( (element) => { %>
+                  <option value="<%= element %>"><%= element %></option>
+                  <% }); %>
+                </select>
+                <input type="submit" value="👽" class="alien-duration">
+            </form>
+            <form action="/">
+              <label for="shape"> </label>
+              <select name="shape" id="shape" class="filter-shape">
+                  <option value="" disabled selected>Filter Shape</option>
+                  <% shapeArr.forEach( (element) => { %>
+                  <option value="<%= element %>"><%= element %></option>
+                  <% }); %>
+                </select>
+                <input type="submit" value="👽" class="alien-shape">
+            </form>
+            <form action="/">
+              <label for="date_time"> </label>
+              <select name="date_time" id="date_time" class="filter-date">
+                  <option value="" disabled selected>Filter Date</option>
+                  <% dateArr.forEach( (element) => { %>
+                  <option value="<%= element %>"><%= element %></option>
+                  <% }); %>
+                </select>
+                <input type="submit" value="👽" class="alien-date">
+            </form>
+       </div>
       </div>
-      <div class="filter-state">
-        <form action="/">
-          <label for="state"> </label>
-          <select name="state" id="state">
-              <option value="" disabled selected>Filter State</option>
-              <% stateArr.forEach( (element) => { %>
-              <option value="<%= element %>"><%= element %></option>
-              <% }); %>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-      </div>
-      <div class="filter-duration">
-        <form action="/">
-          <label for="duration"> </label>
-          <select name="duration" id="duration">
-              <option value="" disabled selected>Filter Duration</option>
-              <% durationArr.forEach( (element) => { %>
-              <option value="<%= element %>"><%= element %></option>
-              <% }); %>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-      </div>
-      <div class="filter-shape">
-        <form action="/">
-          <label for="shape"> </label>
-          <select name="shape" id="shape">
-              <option value="" disabled selected>Filter Shape</option>
-              <% shapeArr.forEach( (element) => { %>
-              <option value="<%= element %>"><%= element %></option>
-              <% }); %>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-      </div>
+     
       <div class="container d-flex justify-content-center container-sightings">
         <div class="row d-flex align-items-center flex-column row-sightings">
           <div class="sighting-list-title">Sighting List</div>
@@ -62,6 +70,7 @@
           </div>
           <% }); %>
         </div>
+        
       </div>
     </main>
   </body>
