@@ -5,8 +5,8 @@
       </h1>
       <div class="filter-city">
         <form action="/">
-          <label for="filter"> </label>
-          <select name="filter" id="filter">
+          <label for="city"> </label>
+          <select name="city" id="city">
               <option value="" disabled selected>Filter City</option>
               <% cityArr.forEach( (element) => { %>
               <option value="<%= element %>"><%= element %></option>
@@ -14,14 +14,50 @@
             </select>
             <input type="submit" value="Submit">
         </form>
-    </div>
+      </div>
+      <div class="filter-state">
+        <form action="/">
+          <label for="state"> </label>
+          <select name="state" id="state">
+              <option value="" disabled selected>Filter State</option>
+              <% stateArr.forEach( (element) => { %>
+              <option value="<%= element %>"><%= element %></option>
+              <% }); %>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="filter-duration">
+        <form action="/">
+          <label for="duration"> </label>
+          <select name="duration" id="duration">
+              <option value="" disabled selected>Filter Duration</option>
+              <% durationArr.forEach( (element) => { %>
+              <option value="<%= element %>"><%= element %></option>
+              <% }); %>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="filter-shape">
+        <form action="/">
+          <label for="shape"> </label>
+          <select name="shape" id="shape">
+              <option value="" disabled selected>Filter Shape</option>
+              <% shapeArr.forEach( (element) => { %>
+              <option value="<%= element %>"><%= element %></option>
+              <% }); %>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+      </div>
       <div class="container d-flex justify-content-center container-sightings">
         <div class="row d-flex align-items-center flex-column row-sightings">
           <div class="sighting-list-title">Sighting List</div>
-          <% array.forEach( (element, index) => { %>
+          <% array.forEach( (element) => { %>
           <div class="sighting-list">
             <a href="/sighting/<%= element %>" class="a-sighting"
-              >Sighting <%= index+1 %></a
+              >Sighting <%= Number(element)+1 %></a
             >
           </div>
           <% }); %>

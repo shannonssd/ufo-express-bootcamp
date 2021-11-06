@@ -45,7 +45,8 @@ app.get('/sighting/:index', (req, res) => {
   });
 });
 
-const createArrayForFilters = (data) => {
+// Callback function to store all unique city names in an array
+const createCityArray = (data) => {
   const cityObj = {};
   const sightingsArr = data.sightings;
   for (let i = 0; i < sightingsArr.length; i += 1) {
@@ -53,8 +54,47 @@ const createArrayForFilters = (data) => {
       cityObj[sightingsArr[i].city] = sightingsArr[i].city;
     }
   }
-  const cityArr = Object.values(cityObj);
-  return cityArr;
+  const cityArray = Object.values(cityObj);
+  return cityArray;
+};
+
+// Callback function to store all unique state names in an array
+const createStateArray = (data) => {
+  const stateObj = {};
+  const sightingsArr = data.sightings;
+  for (let i = 0; i < sightingsArr.length; i += 1) {
+    if (!(sightingsArr[i].state in stateObj)) {
+      stateObj[sightingsArr[i].state] = sightingsArr[i].state;
+    }
+  }
+  const stateArray = Object.values(stateObj);
+  return stateArray;
+};
+
+// Callback function to store all unique durations in an array
+const createDurationArray = (data) => {
+  const durationObj = {};
+  const sightingsArr = data.sightings;
+  for (let i = 0; i < sightingsArr.length; i += 1) {
+    if (!(sightingsArr[i].duration in durationObj)) {
+      durationObj[sightingsArr[i].duration] = sightingsArr[i].duration;
+    }
+  }
+  const durationArray = Object.values(durationObj);
+  return durationArray;
+};
+
+// Callback function to store all unique shapes in an array
+const createShapeArray = (data) => {
+  const shapeObj = {};
+  const sightingsArr = data.sightings;
+  for (let i = 0; i < sightingsArr.length; i += 1) {
+    if (!(sightingsArr[i].shape in shapeObj)) {
+      shapeObj[sightingsArr[i].shape] = sightingsArr[i].shape;
+    }
+  }
+  const shapeArray = Object.values(shapeObj);
+  return shapeArray;
 };
 
 // 3. GET Request for all sightings (Home)
@@ -63,12 +103,44 @@ app.get('/', (req, res) => {
     if (err) {
       res.status(500).send('Sorry! Error reading database!');
     }
-    const cityArr = createArrayForFilters(data);
+    // Store array of unique city names in data object
+    const cityArr = createCityArray(data);
     data.cityArr = cityArr;
 
-    const filteredCity = req.query.filter;
-    if (Object.keys(req.query)[0] === 'filter') {
-      console.log('somethias');
+    // Store array of unique durations names in data object
+    const durationArr = createDurationArray(data);
+    data.durationArr = durationArr;
+
+    // Store array of unique state names in data object
+    const stateArr = createStateArray(data);
+    data.stateArr = stateArr;
+
+    // Store array of unique state names in data object
+    const shapeArr = createShapeArray(data);
+    data.shapeArr = shapeArr;
+
+    if (Object.keys(req.query)[0] === 'duration') {
+      // Store obj info + array index of filtered cities
+      const filteredDuration = req.query.duration;
+      const sightings = [];
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        if (data.sightings[j].duration === filteredDuration) {
+          sightings.push(data.sightings[j]);
+          sightingIndex.push([j]);
+        }
+      }
+      const newObj = { sightings };
+      // Add array of each category for drop down bars
+      newObj.shapeArr = shapeArr;
+      newObj.durationArr = durationArr;
+      newObj.cityArr = cityArr;
+      newObj.array = sightingIndex;
+      newObj.stateArr = stateArr;
+      res.render('home', newObj);
+    } else if (Object.keys(req.query)[0] === 'city') {
+      // Store obj info + array index of filtered cities
+      const filteredCity = req.query.city;
       const sightings = [];
       const sightingIndex = [];
       for (let j = 0; j < data.sightings.length; j += 1) {
@@ -78,10 +150,50 @@ app.get('/', (req, res) => {
         }
       }
       const newObj = { sightings };
+      // Add array of each category for drop down bars
+      newObj.shapeArr = shapeArr;
       newObj.cityArr = cityArr;
+      newObj.durationArr = durationArr;
+      newObj.stateArr = stateArr;
       newObj.array = sightingIndex;
-      console.log('newObj', newObj);
-      console.log('newSighitngs', sightings);
+      res.render('home', newObj);
+    } else if (Object.keys(req.query)[0] === 'state') {
+      // Store obj info + array index of filtered cities
+      const filteredState = req.query.state;
+      const sightings = [];
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        if (data.sightings[j].state === filteredState) {
+          sightings.push(data.sightings[j]);
+          sightingIndex.push([j]);
+        }
+      }
+      const newObj = { sightings };
+      // Add array of each category for drop down bars
+      newObj.shapeArr = shapeArr;
+      newObj.stateArr = stateArr;
+      newObj.cityArr = cityArr;
+      newObj.durationArr = durationArr;
+      newObj.array = sightingIndex;
+      res.render('home', newObj);
+    } else if (Object.keys(req.query)[0] === 'shape') {
+      // Store obj info + array index of filtered cities
+      const filteredShape = req.query.shape;
+      const sightings = [];
+      const sightingIndex = [];
+      for (let j = 0; j < data.sightings.length; j += 1) {
+        if (data.sightings[j].shape === filteredShape) {
+          sightings.push(data.sightings[j]);
+          sightingIndex.push([j]);
+        }
+      }
+      const newObj = { sightings };
+      // Add array of each category for drop down bars
+      newObj.shapeArr = shapeArr;
+      newObj.stateArr = stateArr;
+      newObj.cityArr = cityArr;
+      newObj.durationArr = durationArr;
+      newObj.array = sightingIndex;
       res.render('home', newObj);
     } else {
       const sightingIndex = [];
