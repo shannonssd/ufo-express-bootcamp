@@ -8,7 +8,7 @@
             <form action="/">
               <label for="city"> </label>
               <select name="city" id="city" class="filter-city">
-                  <option value="" disabled selected>Filter City</option>
+                  <option value="" disabled selected>Filter Country</option>
                   <% cityArr.forEach( (element) => { %>
                   <option value="<%= element %>"><%= element %></option>
                   <% }); %>
@@ -19,7 +19,7 @@
             <form action="/">
               <label for="state"> </label>
               <select name="state" id="state" class="filter-state" >
-                  <option value="" disabled selected>Filter State</option>
+                  <option value="" disabled selected>Filter City</option>
                   <% stateArr.forEach( (element) => { %>
                   <option value="<%= element %>"><%= element %></option>
                   <% }); %>
