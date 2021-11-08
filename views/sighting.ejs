@@ -28,7 +28,8 @@
             </div>
             <div class="col-6 d-flex justify-content-center bottom-col">
               <form action="/sighting/<%= index %>/delete?_method=DELETE" method="POST">
-            <input type="submit" value="Delete" class="button" />
+            <input type="submit" value="Delete" class="button" onclick="return confirm('Are you sure you want to delete this sighting?');"
+/>
           </form>
             </div>
           
