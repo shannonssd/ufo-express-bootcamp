@@ -2,6 +2,8 @@ import express from 'express';
 import methodOverride from 'method-override';
 import { read, write, add } from './jsonFileStorage.js';
 
+const PORT = process.argv[2];
+
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -319,4 +321,4 @@ app.get('/shapes/:shape', (req, res) => {
     res.render('shape-list', shapesObj);
   });
 });
-app.listen(3004);
+app.listen(PORT);
