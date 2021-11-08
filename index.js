@@ -149,12 +149,12 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
-      newObj.dateArr = dateArr;
-      newObj.shapeArr = shapeArr;
-      newObj.durationArr = durationArr;
-      newObj.cityArr = cityArr;
+      newObj.dateArr = createDateArray(newObj);
+      newObj.shapeArr = createShapeArray(newObj);
+      newObj.durationArr = createDurationArray(newObj);
+      newObj.cityArr = createCityArray(newObj);
       newObj.array = sightingIndex;
-      newObj.stateArr = stateArr;
+      newObj.stateArr = createStateArray(newObj);
       res.render('home', newObj);
     } else if (Object.keys(req.query)[0] === 'city') {
       // Store obj info + array index of filtered cities
@@ -169,12 +169,12 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
-      newObj.dateArr = dateArr;
-      newObj.shapeArr = shapeArr;
-      newObj.cityArr = cityArr;
-      newObj.durationArr = durationArr;
-      newObj.stateArr = stateArr;
+      newObj.dateArr = createDateArray(newObj);
+      newObj.shapeArr = createShapeArray(newObj);
+      newObj.durationArr = createDurationArray(newObj);
+      newObj.cityArr = createCityArray(newObj);
       newObj.array = sightingIndex;
+      newObj.stateArr = createStateArray(newObj);
       res.render('home', newObj);
     } else if (Object.keys(req.query)[0] === 'state') {
       // Store obj info + array index of filtered cities
@@ -189,12 +189,12 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
-      newObj.dateArr = dateArr;
-      newObj.shapeArr = shapeArr;
-      newObj.stateArr = stateArr;
-      newObj.cityArr = cityArr;
-      newObj.durationArr = durationArr;
+      newObj.dateArr = createDateArray(newObj);
+      newObj.shapeArr = createShapeArray(newObj);
+      newObj.durationArr = createDurationArray(newObj);
+      newObj.cityArr = createCityArray(newObj);
       newObj.array = sightingIndex;
+      newObj.stateArr = createStateArray(newObj);
       res.render('home', newObj);
     } else if (Object.keys(req.query)[0] === 'shape') {
       // Store obj info + array index of filtered cities
@@ -209,12 +209,12 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
-      newObj.dateArr = dateArr;
-      newObj.shapeArr = shapeArr;
-      newObj.stateArr = stateArr;
-      newObj.cityArr = cityArr;
-      newObj.durationArr = durationArr;
+      newObj.dateArr = createDateArray(newObj);
+      newObj.shapeArr = createShapeArray(newObj);
+      newObj.durationArr = createDurationArray(newObj);
+      newObj.cityArr = createCityArray(newObj);
       newObj.array = sightingIndex;
+      newObj.stateArr = createStateArray(newObj);
       res.render('home', newObj);
     } else if (Object.keys(req.query)[0] === 'date_time') {
       // Store obj info + array index of filtered cities
@@ -229,12 +229,12 @@ app.get('/', (req, res) => {
       }
       const newObj = { sightings };
       // Add array of each category for drop down bars
-      newObj.dateArr = dateArr;
-      newObj.shapeArr = shapeArr;
-      newObj.stateArr = stateArr;
-      newObj.cityArr = cityArr;
-      newObj.durationArr = durationArr;
+      newObj.dateArr = createDateArray(newObj);
+      newObj.shapeArr = createShapeArray(newObj);
+      newObj.durationArr = createDurationArray(newObj);
+      newObj.cityArr = createCityArray(newObj);
       newObj.array = sightingIndex;
+      newObj.stateArr = createStateArray(newObj);
       res.render('home', newObj);
     } else {
       const sightingIndex = [];
